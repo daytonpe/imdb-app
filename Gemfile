@@ -31,6 +31,8 @@ gem 'twitter-bootstrap-rails'
 # Simple form
 gem 'simple_form'
 
+gem 'devise'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
