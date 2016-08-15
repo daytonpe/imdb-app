@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   devise_for :users
   # nested user's movies routes
   resources :users, only: [:show] do
-    resources :movies, only: [:index, :show, :create, :destroy], shallow: true
+    resources :movies, only: [:index, :show, :create, :destroy], shallow: true do
+      # update submits from the edit page
+      # edit takes you to the edit page
+      resources :reviews, only: [:edit, :create, :update, :destroy], shallow: true
+    end
   end
   # search movies route
   get 'search' => 'movies#search' # search_path => /search

@@ -1,4 +1,6 @@
 class MoviesController < ApplicationController
+	before_action :find_movie, only: [:show, :destroy]
+
 	def index
 	    user = User.find(params[:user_id])
 	    if current_user == user
@@ -29,6 +31,7 @@ class MoviesController < ApplicationController
 	end
 
   def show
+  	@review = Review.new
   end
 
   def destroy
